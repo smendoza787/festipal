@@ -16,6 +16,8 @@ class FestivalsController < ApplicationController
 
       redirect '/login'
     else
+      session[:artist_num] = 1
+
       erb :'/festivals/new'
     end
   end
@@ -26,6 +28,19 @@ class FestivalsController < ApplicationController
     if fest.save
       fest.created_by_user_id = current_user.id
       fest.save
+
+      params[:new_artist].each do |artist_params|
+        if artist_params[:name] != "" && artist_params[:genre] != ""
+          new_artist = fest.artists.find_or_create_by(artist_params)
+
+          if !new_artist.save
+            flash[:error] = fest.errors.full_messages
+
+            redirect '/festivals/new'
+          end
+        end
+      end
+
       flash[:message] = "Successfully created festival."
 
       redirect "/festivals/#{fest.id}"

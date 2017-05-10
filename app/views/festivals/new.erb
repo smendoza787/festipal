@@ -13,5 +13,61 @@
   <p>Festival Location: <input type="text" name="festival[location]" value=""></p>
   <p>Festival Date: <input type="date" name="festival[date]" placeholder="MM/DD/YY"></p>
 
+  <h3>Create Lineup</h3>
+
+  <p>Choose from existing artists:</p>
+
+  <% Artist.all.each do |artist| %>
+    <input type="checkbox" name="festival[artist_ids][]" value="<%= artist.id %>"><%= artist.name %></input>
+  <% end %>
+
+  <p>Or add new artists:</p>
+
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+  <p>Artist Name: <input type="text" name="[new_artist][][name]"></p>
+  <p>Artist Genre: <input type="text" name="[new_artist][][genre]"></p>
+  <br>
+
   <input type="submit" value="Create Festival">
 </form>
