@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect '/signup'
     else
       session[:id] = @user.id
-      flash[:message] = "Successfully created new account, thanks #{@user.username}!"
+      session[:message] = "Successfully created new account, thanks #{@user.username}!"
 
       redirect '/festivals'
     end
@@ -31,6 +31,8 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else
+      flash[:message] = "You are already logged in."
+
       redirect '/festivals'
     end
   end
@@ -40,7 +42,8 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
-      flash[:message] = "Successfully logged in as #{current_user.username}."
+
+      session[:message] = "Successfully logged in as #{@user.username}."
 
       redirect '/festivals'
     else

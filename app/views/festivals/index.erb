@@ -1,4 +1,6 @@
 <%= flash[:message] %>
+<%= session[:message] %>
+<% session[:message].clear %>
 
 <form action="/logout" method="post">
   <input type="submit" value="Log Out">
