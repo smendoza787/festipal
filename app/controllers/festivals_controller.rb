@@ -22,9 +22,9 @@ class FestivalsController < ApplicationController
 
       redirect '/festivals'
     else
-      flash[:errors] = fest.errors.full_messages
+      flash[:error] = fest.errors.full_messages
 
-      erb :'/festivals/new'
+      redirect '/festivals/new'
     end
   end
 

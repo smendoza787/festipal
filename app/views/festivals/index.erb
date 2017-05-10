@@ -6,10 +6,12 @@
   <input type="submit" value="Log Out">
 </form>
 
+<a href="/festivals/new">Create a Festival</a>
+
 <h1>FESTIVAL HOME PAGE</h1>
 
 <% Festival.all.each do |festival| %>
-  <h2><%= festival.name %></h2>
+  <a href="/festivals/<%= festival.id %>"></a><h2><%= festival.name %></h2>
   <h4><%= festival.location %></h4>
   <p><%= festival.date %></p>
 <% end %>
