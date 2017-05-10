@@ -10,4 +10,22 @@ class FestivalsController < ApplicationController
     end
   end
 
+  get '/festivals/new' do
+    erb :'/festivals/new'
+  end
+
+  post '/festivals' do
+    fest = Festival.new(params[:festival])
+
+    if fest.save
+      flash[:message] = "Successfully created festival."
+
+      redirect '/festivals'
+    else
+      flash[:errors] = fest.errors.full_messages
+
+      erb :'/festivals/new'
+    end
+  end
+
 end

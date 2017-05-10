@@ -7,3 +7,9 @@
 </form>
 
 <h1>FESTIVAL HOME PAGE</h1>
+
+<% Festival.all.each do |festival| %>
+  <h2><%= festival.name %></h2>
+  <h4><%= festival.location %></h4>
+  <p><%= festival.date %></p>
+<% end %>

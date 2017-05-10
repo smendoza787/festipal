@@ -1,0 +1,15 @@
+<% if flash[:error] %>
+ <% flash[:error].each do |e| %>
+   <p class="error message"><%= e + "." %></p>
+  <% end %>
+<% end %>
+
+<h1>Create a Festival</h1>
+
+<form action="/festivals" method="post">
+  <p>Festival Name: <input type="text" name="festival[name]"></p>
+  <p>Festival Location: <input type="text" name="festival[location]" value=""></p>
+  <p>Festival Date: <input type="date" name="festival[date]" placeholder="MM/DD/YY"></p>
+
+  <input type="submit" value="Create Festival">
+</form>
