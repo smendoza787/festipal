@@ -1,0 +1,18 @@
+<% if flash[:error] %>
+ <% flash[:error].each do |e| %>
+   <p class="error message"><%= e + "." %></p>
+  <% end %>
+<% end %>
+
+<a href="/festivals/<%= @festival.id %>">Back to Festival</a>
+
+<h1>Update Festival</h1>
+
+<form action="/festivals/<%= @festival.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>Festival Name: <input type="text" name="festival[name]" value="<%= @festival.name %>"></p>
+  <p>Festival Location: <input type="text" name="festival[location]" value="<%= @festival.location %>"></p>
+  <p>Festival Date: <input type="date" name="festival[date]" value="<%= @festival.date %>"></p>
+
+  <input type="submit" value="Update Festival">
+</form>

@@ -1,0 +1,15 @@
+<%= flash[:message] %>
+
+<a href="/festivals">Back to Festivals</a>
+
+<h1><%= @festival.name %></h1>
+<h3><%= @festival.date %></h3>
+<p><%= @festival.location %></p>
+
+<% if @festival.created_by_user_id == current_user.id %>
+  <a href="/festivals/<%= @festival.id %>/edit">Edit Festival</a>
+  <form action="/festivals/<%= @festival.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Festival">
+  </form>
+<% end %>
