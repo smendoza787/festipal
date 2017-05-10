@@ -1,4 +1,4 @@
-class FestivalUsers < ActiveRecord::Base
+class FestivalUser < ActiveRecord::Base
   belongs_to :user
   belongs_to :festival
 end

@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else
-      flash[:message] = "You are already logged in."
+      flash[:message] = "You are already logged in as #{current_user.username}."
 
       redirect '/festivals'
     end

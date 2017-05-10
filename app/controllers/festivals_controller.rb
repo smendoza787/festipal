@@ -11,12 +11,12 @@ class FestivalsController < ApplicationController
   end
 
   get '/festivals/new' do
-    if logged_in?
-      erb :'/festivals/new'
-    else
+    if !logged_in?
       flash[:message] = "You must be logged in to do that."
 
       redirect '/login'
+    else
+      erb :'/festivals/new'
     end
   end
 
