@@ -12,17 +12,17 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(params)
+    @user = User.new(params)
 
-    if !@user.save
-      flash[:error] = @user.errors.full_messages
-
-      redirect '/signup'
-    else
+    if @user.save
       session[:id] = @user.id
       session[:message] = "Successfully created new account, thanks #{@user.username.capitalize}!"
 
       redirect '/festivals'
+    else
+      flash[:error] = @user.errors.full_messages
+
+      erb :'/users/new'
     end
 
   end
