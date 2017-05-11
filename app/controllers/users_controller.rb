@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect '/signup'
     else
       session[:id] = @user.id
-      session[:message] = "Successfully created new account, thanks #{@user.username}!"
+      session[:message] = "Successfully created new account, thanks #{@user.username.capitalize}!"
 
       redirect '/festivals'
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
 
-      session[:message] = "Successfully logged in as #{@user.username}."
+      session[:message] = "Successfully logged in as #{@user.username.capitalize}."
 
       redirect '/festivals'
     else

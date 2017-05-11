@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="master.css">
+
+<a href="/festivals">Back to Festivals</a>
+
+<h1><%= @user.username.capitalize %>'s Festival Page</h1>
+
+<% if @user.id == current_user.id %>
+  <h3>You're going to...</h3>
+<% else %>
+  <h3>They're going to...</h3>
+<% end %>
+
+<% @user.festivals.each do |f| %>
+  <a href="/festivals/<%= f.id %>"><%= f.name %></a>
+  <p><%= f.location %></p>
+  <p><%= f.date %></p>
+<% end %>
