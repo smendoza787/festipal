@@ -11,3 +11,9 @@ ul.checkboxes li {
   padding: 10px;
   border-radius: 5px;
 }
+
+.festival-section {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

@@ -4,10 +4,20 @@
   </div>
 <% end %>
 
-<h1>Upcoming Festivals</h1>
+<h1 class="jumbotron">Upcoming Festivals</h1>
 
-<% Festival.all.each do |festival| %>
-  <a href="/festivals/<%= festival.id %>"><h2><%= festival.name %></h2></a>
-  <h4><%= festival.location %></h4>
-  <p><%= festival.date %></p>
-<% end %>
+<div class="container">
+  <% Festival.all.each do |festival| %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="festival-section text-center">
+          <h2><a href="/festivals/<%= festival.id %>"><%= festival.name %></a></h2>
+          <h4><%= festival.location %></h4>
+          <p><%= festival.date %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- .strftime('%A, %B %d, %y') -->
