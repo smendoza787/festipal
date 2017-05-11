@@ -66,4 +66,23 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/users/:username' do
+    if logged_in?
+      @user = User.find_by(username: params[:username])
+
+      if @user
+        erb :'/users/show'
+      else
+        flash[:message] = "User does not exist."
+
+        redirect '/festivals'
+      end
+
+    else
+      flash[:message] = "You must be logged in to do that."
+
+      redirect '/login'
+    end
+  end
+
 end
