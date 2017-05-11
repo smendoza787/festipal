@@ -3,7 +3,11 @@ ul.checkboxes li {
   width:12em;
 }
 
-.new-artists input {
-  display: inline-block;
-  width: 12em;
+.mult-artists {
+  float: left;
+  width: 30%;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
 }
