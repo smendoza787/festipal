@@ -4,13 +4,7 @@
   </div>
 <% end %>
 
-<form action="/logout" method="post">
-  <input type="submit" value="Log Out">
-</form>
-
-<a href="/festivals/new">Create a Festival</a>
-
-<h1>FESTIVAL HOME PAGE</h1>
+<h1>Upcoming Festivals</h1>
 
 <% Festival.all.each do |festival| %>
   <a href="/festivals/<%= festival.id %>"><h2><%= festival.name %></h2></a>

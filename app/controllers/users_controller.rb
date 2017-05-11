@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     end
   end
 
-  post '/logout' do
+  get '/logout' do
     if logged_in?
       session.destroy
       flash[:message] = "You have successfully logged out."

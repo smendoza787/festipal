@@ -4,28 +4,32 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5 col-md-offset-1">
       <h4>festiPal is an app for keeping track of your favorite upcoming music festivals!</h4>
       <p>This web application was made using the <a href="http://sinatrarb.com" target="_blank">Sinatra</a> framework.</p>
     </div>
-    <div class="col-md-6">
-      <form action="/login" method="post">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input id="username" type="text" name="username" class="form-control">
-        </div>
+    <div class="col-md-5">
+      <% if !logged_in? %>
+        <form action="/login" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" class="form-control">
+          </div>
 
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" class="form-control">
-        </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control">
+          </div>
 
-        <div class="form-group">
-          <input type="submit" value="Log In" class="btn btn-primary form-control">
-          <br><br>
-          <a href="/signup" class="btn btn-success form-control">Sign Up</a>
-        </div>
-      </form>
+          <div class="form-group">
+            <input type="submit" value="Log In" class="btn btn-primary form-control">
+            <br><br>
+            <a href="/signup" class="btn btn-success form-control">Sign Up</a>
+          </div>
+        </form>
+      <% else %>
+        Display Some logged in user stuff
+      <% end %>
     </div>
   </div>
 </div>

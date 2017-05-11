@@ -1,0 +1,9 @@
+ul.checkboxes li {
+  display:inline-block;
+  width:12em;
+}
+
+.new-artists input {
+  display: inline-block;
+  width: 12em;
+}
