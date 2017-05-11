@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
 
-      session[:message] = "Successfully logged in as #{@user.username.capitalize}."
+      session[:message] = "Successfully logged in as #{current_user.username.capitalize}."
 
       redirect '/festivals'
     else

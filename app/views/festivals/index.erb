@@ -1,6 +1,8 @@
-<%= flash[:message] %>
-<%= session[:message] %>
-<% session[:message].clear %>
+<% if flash[:message] %>
+  <div class="alert alert-info" role="alert">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 
 <form action="/logout" method="post">
   <input type="submit" value="Log Out">

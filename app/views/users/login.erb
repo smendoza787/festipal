@@ -1,10 +1,25 @@
-<%= flash[:message] %>
+<% if flash[:message] %>
+  <div class="alert alert-info" role="alert">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 
-<h1>LOG IN</h1>
+<h1>Log In</h1>
 
 <form action="/login" method="post">
-  <p>Username: <input type="text" name="username"></p>
-  <p>Password: <input type="password" name="password" value=""></p>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input id="username" type="text" name="username" class="form-control">
+  </div>
 
-  <input type="submit" value="Log In">
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Log In" class="btn btn-primary form-control">
+    <br><br>
+    <a href="/signup" class="btn btn-success form-control">Sign Up</a>
+  </div>
 </form>
