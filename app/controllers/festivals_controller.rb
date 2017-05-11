@@ -53,7 +53,7 @@ class FestivalsController < ApplicationController
 
   get '/festivals/:id' do
     if logged_in?
-      @festival = Festival.find(params[:id])
+      @festival = Festival.find_by(id: params[:id])
 
       if @festival
         erb :'/festivals/show'
@@ -72,7 +72,7 @@ class FestivalsController < ApplicationController
 
   get '/festivals/:id/edit' do
     if logged_in?
-      @festival = Festival.find(params[:id])
+      @festival = Festival.find_by(id: params[:id])
 
       if @festival
         erb :'/festivals/edit'
@@ -89,8 +89,35 @@ class FestivalsController < ApplicationController
     end
   end
 
+  get '/festivals/:id/add' do
+    if logged_in?
+      @festival = Festival.find_by(params[:id])
+
+      if @festival
+        current_user.festivals << @festival
+
+        flash[:message] = "You're going to #{@festival.name}!"
+
+        redirect "/festivals/#{@festival.id}"
+      else
+        flash[:message] = "Festival does not exist."
+
+        redirect '/festivals'
+      end
+
+    else
+      flash[:message] = "You must be logged in to do that."
+
+      redirect '/login'
+    end
+  end
+
+  get '/festivals/:id/remove' do
+
+  end
+
   patch '/festivals/:id' do
-    @festival = Festival.find(params[:id])
+    @festival = Festival.find_by(id: params[:id])
     @festival.update(params[:festival])
 
     flash[:message] = "Successfully updated festival."
@@ -99,7 +126,7 @@ class FestivalsController < ApplicationController
   end
 
   delete '/festivals/:id' do
-    @festival = Festival.find(params[:id])
+    @festival = Festival.find_by(id: params[:id])
     @festival.delete
 
     flash[:message] = "Successfully deleted festival."

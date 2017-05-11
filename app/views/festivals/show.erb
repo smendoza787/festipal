@@ -14,6 +14,9 @@
   </form>
 <% end %>
 
+<a href="/festivals/<%= @festival.id %>/add">I'm going!</a>
+<a href="/festivals/<%= @festival.id %>/remove">I'm not going.</a>
+
 <h2>Lineup</h2>
 
 <% @festival.artists.each do |artist| %>
