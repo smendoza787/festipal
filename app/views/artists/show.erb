@@ -1,0 +1,12 @@
+<a href="/festivals">Back to Festivals</a>
+
+<h1><%= @artist.name %></h1>
+<h3><%= @artist.genre %></h3>
+
+<h2>Performing at...</h2>
+
+<% @artist.festivals.each do |festival| %>
+  <a href="/festivals/<%= festival.id %>"><%= festival.name %></a>
+  <p><%= festival.location %></p>
+  <p><%= festival.date %></p>
+<% end %>
