@@ -91,7 +91,7 @@ class FestivalsController < ApplicationController
 
   get '/festivals/:id/add' do
     if logged_in?
-      @festival = Festival.find_by(params[:id])
+      @festival = Festival.find_by(id: params[:id])
 
       if @festival
         current_user.festivals << @festival
@@ -113,7 +113,26 @@ class FestivalsController < ApplicationController
   end
 
   get '/festivals/:id/remove' do
+    if logged_in?
+      @festival = current_user.festivals.find_by(id: params[:id])
 
+      if @festival
+        current_user.festivals -= [@festival]
+
+        flash[:message] = "You're not going to #{@festival.name} anymore."
+
+        redirect "/festivals/#{@festival.id}"
+      else
+        flash[:message] = "Cannot find festival in your festival list."
+
+        redirect '/festivals'
+      end
+
+    else
+      flash[:message] = "You must be logged in to do that."
+
+      redirect '/login'
+    end
   end
 
   patch '/festivals/:id' do

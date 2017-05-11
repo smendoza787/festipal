@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(version: 20170509204005) do
     t.integer "festival_id"
   end
 
-  create_table "festival_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "festival_id"
-  end
-
   create_table "festivals", force: :cascade do |t|
     t.string "name"
     t.date "date"
     t.string "location"
     t.integer "created_by_user_id"
+  end
+
+  create_table "user_festivals", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "festival_id"
   end
 
   create_table "users", force: :cascade do |t|

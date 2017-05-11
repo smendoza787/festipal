@@ -14,8 +14,12 @@
   </form>
 <% end %>
 
-<a href="/festivals/<%= @festival.id %>/add">I'm going!</a>
-<a href="/festivals/<%= @festival.id %>/remove">I'm not going.</a>
+<% if current_user.festivals.include?(@festival) %>
+  <p>You're going!</p>
+  <a href="/festivals/<%= @festival.id %>/remove">I'm not going anymore.</a>
+<% else %>
+  <a href="/festivals/<%= @festival.id %>/add">I'm going!</a>
+<% end %>
 
 <h2>Lineup</h2>
 
