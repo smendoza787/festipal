@@ -15,6 +15,7 @@ gem 'bcrypt'
 gem 'rack'
 gem 'rack-flash3'
 gem "tux"
+gem 'heroku'
 
 gem 'sqlite3', :group => 'development'
 gem 'pg', :group => 'production'
