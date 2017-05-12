@@ -1,12 +1,14 @@
-/*body {
-  background-image: url('./images/rave-image.jpg');
-  background-position: center;
-  background-size: cover;
-}*/
+body {
+  background-color: #4B4A5A;
+}
 
 ul.checkboxes li {
   display:inline-block;
   width:12em;
+}
+
+.create-festival {
+  margin-bottom: 10px;
 }
 
 .mult-artists {
@@ -19,7 +21,13 @@ ul.checkboxes li {
 }
 
 .festival-section {
-  border: 2px solid black;
+  color: #E1D5D2;
+  border: 2px solid #E79A58;
   border-radius: 5px;
   margin-bottom: 10px;
+  background-color: #A55540;
+  box-shadow: 0 2px 3px black;
 }
+
+.festival-section a {
+  color: #E1D5D2;

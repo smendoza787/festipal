@@ -1,8 +1,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="stylesheet" href="/master.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/master.css">
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -26,7 +26,7 @@
             <li><a href="/login" class="btn btn-default">Log In</a></li>
           <% else %>
             <p class="navbar-text">Hello, <%= current_user.username.capitalize %>!</p>
-            <li><a href="/festivals/new">New Festival</a></li>
+            <li><a href="/festivals">Festivals</a></li>
             <li><a href="/logout" class="btn btn-default">Logout</a></li>
           <% end %>
         </ul>
