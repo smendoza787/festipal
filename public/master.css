@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 body {
   background-color: #262d49;
   margin-top: 60px;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .clearfix:after {
@@ -42,6 +52,7 @@ ul.checkboxes li {
   display: inline-block;
   float: left;
   width: 45%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -149,7 +160,7 @@ a:active {
 }
 
 .btn {
-  box-shadow: 0 2px 4px black;
+  box-shadow: 0 2px 2px black;
 }
 
 
