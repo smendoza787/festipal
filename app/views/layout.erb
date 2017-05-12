@@ -26,7 +26,7 @@
             <li><a href="/signup">Sign Up</a></li>
             <li><a href="/login" class="btn btn-default"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
           <% else %>
-            <p class="navbar-text">Hello, <%= current_user.username.capitalize %>!</p>
+            <li><a href="/users/<%= current_user.id %>"><i class="fa fa-hand-spock-o" aria-hidden="true"></i> Hello, <%= current_user.username.capitalize %>!</a></li>
             <li><a href="/festivals"><i class="fa fa-music" aria-hidden="true"></i> Festivals</a></li>
             <li><a href="/logout" class="btn btn-default"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
           <% end %>

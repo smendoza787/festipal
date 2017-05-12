@@ -1,12 +1,24 @@
-<a href="/festivals">Back to Festivals</a>
+<a href="/festivals"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to Festivals</a>
 
-<h1><%= @artist.name %></h1>
-<h3><%= @artist.genre %></h3>
+<h1 class="jumbotron text-center"><%= @artist.name %></h1>
+<div class="well text-center">
+  <h2><%= @artist.genre %></h2>
+</div>
 
-<h2>Performing at...</h2>
+<div class="well">
+  <h2 class="text-center">Performing at...</h2>
 
-<% @artist.festivals.each do |festival| %>
-  <a href="/festivals/<%= festival.id %>"><%= festival.name %></a>
-  <p><%= festival.location %></p>
-  <p><%= festival.date %></p>
-<% end %>
+  <% @artist.festivals.each do |festival| %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="festival-section text-center">
+          <a href="/festivals/<%= festival.id %>">
+            <h2><%= festival.name %></h2>
+            <p><%= festival.location %></p>
+            <p><%= festival.date %></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
