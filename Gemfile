@@ -16,7 +16,7 @@ gem 'rack-flash3'
 gem "tux"
 
 group :development do
-  gem 'sqlite3', '1.3.8'
+  gem 'sqlite3', '1.3.13'
 end
 
 group :production do
