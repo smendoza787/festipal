@@ -23,7 +23,6 @@ GEM
     method_source (0.8.2)
     minitest (5.10.2)
     mustermann (1.0.0)
-    pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -35,11 +34,6 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.5)
-    rails_stdout_logging (0.0.5)
     rake (12.0.0)
     require_all (1.4.0)
     ripl (0.7.1)
@@ -82,10 +76,8 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   bcrypt
-  pg
   pry
   rack-flash3
-  rails_12factor
   rake
   require_all
   shotgun
