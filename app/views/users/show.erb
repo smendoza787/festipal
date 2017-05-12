@@ -11,12 +11,13 @@
 
   <div class="row clearfix">
     <% @user.festivals.each do |festival| %>
-      <div class="festival-section text-center">
+      <div class="festival-section text-center going">
         <a href="/festivals/<%= festival.id %>">
           <h3><%= festival.name %></h3>
           <p><%= festival.location %></p>
           <p><%= festival.date %></p>
         </a>
+        <a href="/festivals/<%= festival.id %>/remove" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i> I'm not going anymore.</a>
       </div>
   <% end %>
 </div>

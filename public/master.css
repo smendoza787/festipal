@@ -49,6 +49,11 @@ a:hover {
   text-decoration: none;
 }
 
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
 .going {
   background-color: #005691;
 }

@@ -36,7 +36,7 @@
     <% if current_user.festivals.include?(@festival) %>
       <div class="well">
         <h2>You're going! <i class="fa fa-thumbs-up" aria-hidden="true"></i></h2>
-        <a href="/festivals/<%= @festival.id %>/remove" class="btn btn-warning">I'm not going anymore.</a>
+        <a href="/festivals/<%= @festival.id %>/remove" class="btn btn-danger">I'm not going anymore.</a>
       </div>
     <% else %>
       <div class="well">
