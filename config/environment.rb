@@ -7,8 +7,7 @@ require 'sinatra/base'
 require 'rack-flash'
 
 ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.slite"
+  :adapter => "postgresql",
 )
 
 require_all 'app'
