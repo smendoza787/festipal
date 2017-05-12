@@ -6,22 +6,24 @@
 
 <h1 class="jumbotron text-center">Upcoming Festivals</h1>
 
-<div class="container">
-  <div class="row create-festival">
-    <a href="/festivals/new" class="btn btn-primary">Add New Festival</a>
-  </div>
+<div class="well">
+<div class="row create-festival">
+  <a href="/festivals/new" class="btn btn-primary">Add New Festival</a>
+</div>
 
-  <% Festival.all.each do |festival| %>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="festival-section text-center">
-          <h2><a href="/festivals/<%= festival.id %>"><%= festival.name %></a></h2>
+<% Festival.all.each do |festival| %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="festival-section text-center">
+        <a href="/festivals/<%= festival.id %>">
+          <h2><%= festival.name %></h2>
           <h4><%= festival.location %></h4>
           <p><%= festival.date %></p>
-        </div>
+        </a>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
 </div>
 
 <!-- .strftime('%A, %B %d, %y') -->

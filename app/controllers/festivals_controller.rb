@@ -27,6 +27,7 @@ class FestivalsController < ApplicationController
 
     if fest.save
       fest.created_by_user_id = current_user.id
+      current_user.festivals << fest
       fest.save
 
       params[:new_artist].each do |artist_params|

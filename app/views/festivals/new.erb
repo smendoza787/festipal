@@ -4,159 +4,161 @@
   <% end %>
 <% end %>
 
-<h1 class="jumbotron">Create a Festival</h1>
-
 <a href="/festivals">Back to Festivals</a>
 
-<form action="/festivals" method="post">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="form-group">
-        <label for="festival-name">Festival Name:</label>
-        <input type="text" name="festival[name]" id="festival-name" class="form-control">
+<h1 class="jumbotron">Create a Festival</h1>
 
-        <label for="festival-location">Festival Location:</label>
-        <input type="text" name="festival[location]" id="festival-location" class="form-control">
+<div class="well">
+  <form action="/festivals" method="post">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label for="festival-name">Festival Name:</label>
+          <input type="text" name="festival[name]" id="festival-name" class="form-control">
 
-        <label for="festival-date">Festival Date:</label>
-        <input type="date" name="festival[date]" placeholder="MM/DD/YY" id="festival-date" class="form-control">
+          <label for="festival-location">Festival Location:</label>
+          <input type="text" name="festival[location]" id="festival-location" class="form-control">
+
+          <label for="festival-date">Festival Date:</label>
+          <input type="date" name="festival[date]" placeholder="MM/DD/YY" id="festival-date" class="form-control">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h3>Create Lineup</h3>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Create Lineup</h3>
 
-      <p>Choose from existing artists:</p>
+        <p>Choose from existing artists:</p>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <ul class="checkboxes">
-        <% Artist.all.each do |artist| %>
-          <li><input type="checkbox" name="festival[artist_ids][]" value="<%= artist.id %>"><%= artist.name %></input></li>
-        <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <ul class="checkboxes">
+          <% Artist.all.each do |artist| %>
+            <li><input type="checkbox" name="festival[artist_ids][]" value="<%= artist.id %>"><%= artist.name %></input></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 new-artists">
-      <p>Or add new artists:</p>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 new-artists">
+        <p>Or add new artists:</p>
 
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
+        <div class="mult-artists">
+          <label for="[new_artist][][name]">Artist Name:</label>
+          <input type="text" name="[new_artist][][name]" class="form-control">
+          <label for="[new_artist][][genre]">Artist Genre:</label>
+          <input type="text" name="[new_artist][][genre]" class="form-control">
+        </div>
+
       </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
-      <div class="mult-artists">
-        <label for="[new_artist][][name]">Artist Name:</label>
-        <input type="text" name="[new_artist][][name]" class="form-control">
-        <label for="[new_artist][][genre]">Artist Genre:</label>
-        <input type="text" name="[new_artist][][genre]" class="form-control">
-      </div>
-
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <input type="submit" value="Create Festival" class="btn btn-lg btn-primary">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <input type="submit" value="Create Festival" class="btn btn-lg btn-primary">
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>

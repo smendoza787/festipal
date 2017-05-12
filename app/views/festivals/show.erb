@@ -6,27 +6,45 @@
 
 <a href="/festivals">Back to Festivals</a>
 
-<h1><%= @festival.name %></h1>
-<h3><%= @festival.date %></h3>
-<p><%= @festival.location %></p>
+<div class="jumbotron text-center">
+  <h1><%= @festival.name %></h1>
+</div>
+
+<div class="row text-center">
+  <div class="col-md-6">
+    <div class="well">
+      <h3><%= @festival.date %></h3>
+      <p><%= @festival.location %></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <% if current_user.festivals.include?(@festival) %>
+      <div class="well">
+        <h2>You're going!</h2>
+        <a href="/festivals/<%= @festival.id %>/remove">I'm not going anymore.</a>
+      </div>
+    <% else %>
+      <div class="well">
+        <h2>You're not going. :/</h2>
+        <a href="/festivals/<%= @festival.id %>/add">I'm going!</a>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 
 <% if @festival.created_by_user_id == current_user.id %>
-  <a href="/festivals/<%= @festival.id %>/edit">Edit Festival</a>
+  <a href="/festivals/<%= @festival.id %>/edit" class="btn btn-default">Edit Festival</a>
   <form action="/festivals/<%= @festival.id %>" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Festival">
+    <input type="submit" value="Delete Festival" class="btn btn-danger">
   </form>
 <% end %>
 
-<% if current_user.festivals.include?(@festival) %>
-  <p>You're going!</p>
-  <a href="/festivals/<%= @festival.id %>/remove">I'm not going anymore.</a>
-<% else %>
-  <a href="/festivals/<%= @festival.id %>/add">I'm going!</a>
-<% end %>
+<div class="well">
+  <h2 class="text-center">Lineup</h2>
 
-<h2>Lineup</h2>
-
-<% @festival.artists.each do |artist| %>
-  <h4><a href="/artists/<%= artist.id %>"><%= artist.name %></a></h4>
-<% end %>
+  <% @festival.artists.each do |artist| %>
+    <h4><a href="/artists/<%= artist.id %>"><%= artist.name %></a></h4>
+  <% end %>
+</div>
