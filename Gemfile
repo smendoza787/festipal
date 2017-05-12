@@ -16,7 +16,7 @@ gem 'rack-flash3'
 gem "tux"
 
 group :development do
-  gem 'pg'
+  gem 'sqlite3'
 end
 
 group :production do
