@@ -7,8 +7,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "secret"
 
-    DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/development.sqlite3"))
-    DataMapper.auto_upgrade!
+    DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://database.db')
   end
 
   use Rack::Flash
