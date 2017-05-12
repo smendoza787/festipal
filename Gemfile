@@ -12,6 +12,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+gem 'rack'
 gem 'rack-flash3'
 gem "tux"
 
