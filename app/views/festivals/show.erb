@@ -6,6 +6,21 @@
 
 <a href="/festivals"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to Festivals</a>
 
+<% if @festival.created_by_user_id == current_user.id %>
+  <div class="row text-center">
+    <div class="col-md-12 edit-bar">
+      <p>You are the creator of this festival.</p>
+
+      <a href="/festivals/<%= @festival.id %>/edit" class="btn btn-primary">Edit Festival</a>
+
+      <form action="/festivals/<%= @festival.id %>" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Festival" class="btn btn-danger">
+      </form>
+    </div>
+  </div>
+<% end %>
+
 <div class="jumbotron text-center">
   <h1><%= @festival.name %></h1>
 </div>
@@ -21,31 +36,16 @@
     <% if current_user.festivals.include?(@festival) %>
       <div class="well">
         <h2>You're going! <i class="fa fa-thumbs-up" aria-hidden="true"></i></h2>
-        <a href="/festivals/<%= @festival.id %>/remove" class="btn btn-default">I'm not going anymore.</a>
+        <a href="/festivals/<%= @festival.id %>/remove" class="btn btn-warning">I'm not going anymore.</a>
       </div>
     <% else %>
       <div class="well">
         <h2>You're not going. <i class="fa fa-thumbs-down" aria-hidden="true"></i></h2>
-        <a href="/festivals/<%= @festival.id %>/add" class="btn btn-default">I'm going!</a>
+        <a href="/festivals/<%= @festival.id %>/add" class="btn btn-info">I'm going!</a>
       </div>
     <% end %>
   </div>
 </div>
-
-<% if @festival.created_by_user_id == current_user.id %>
-  <div class="row text-center">
-    <div class="col-md-12">
-      <p>You are the creator of this festival.</p>
-
-      <a href="/festivals/<%= @festival.id %>/edit" class="btn btn-primary form-control edit-btn">Edit Festival</a>
-
-      <form action="/festivals/<%= @festival.id %>" method="post">
-        <input id="hidden" type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete Festival" class="btn btn-danger form-control">
-      </form>
-    </div>
-  </div>
-<% end %>
 
 <div class="well">
   <h2 class="text-center">Lineup</h2>

@@ -1,17 +1,22 @@
-<link rel="stylesheet" href="master.css">
+<a href="/festivals"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to Festivals</a>
 
-<a href="/festivals">Back to Festivals</a>
+<h1 class="jumbotron text-center"><%= @user.username.capitalize %>'s Festival Page</h1>
 
-<h1><%= @user.username.capitalize %>'s Festival Page</h1>
+<div class="well">
+  <% if @user.id == current_user.id %>
+    <h3 class="text-center">You're going to...</h3>
+  <% else %>
+    <h3 class="text-center">They're going to...</h3>
+  <% end %>
 
-<% if @user.id == current_user.id %>
-  <h3>You're going to...</h3>
-<% else %>
-  <h3>They're going to...</h3>
-<% end %>
-
-<% @user.festivals.each do |f| %>
-  <a href="/festivals/<%= f.id %>"><%= f.name %></a>
-  <p><%= f.location %></p>
-  <p><%= f.date %></p>
-<% end %>
+  <div class="row clearfix">
+    <% @user.festivals.each do |festival| %>
+      <div class="festival-section text-center">
+        <a href="/festivals/<%= festival.id %>">
+          <h3><%= festival.name %></h3>
+          <p><%= festival.location %></p>
+          <p><%= festival.date %></p>
+        </a>
+      </div>
+  <% end %>
+</div>

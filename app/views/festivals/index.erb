@@ -11,19 +11,32 @@
 </div>
 
 <div class="well">
-<% Festival.all.each do |festival| %>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="festival-section text-center">
-        <a href="/festivals/<%= festival.id %>">
-          <h2><%= festival.name %></h2>
-          <h4><%= festival.location %></h4>
-          <p><%= festival.date %></p>
-        </a>
-      </div>
+    <div class="clearfix">
+      <% Festival.all.each do |festival| %>
+        <% if current_user.festivals.include?(festival) %>
+          <div class="festival-section text-center going">
+            <a href="/festivals/<%= festival.id %>" class="text-center">
+              <h2><%= festival.name %></h2>
+              <h4><%= festival.location %></h4>
+              <p><%= festival.date %></p>
+            </a>
+
+            <a href="/festivals/<%= festival.id %>/remove" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i> I'm not going anymore.</a>
+          </div>
+        <% else %>
+          <div class="festival-section text-center not-going">
+            <a href="/festivals/<%= festival.id %>" class=" text-center">
+              <h2><%= festival.name %></h2>
+              <h4><%= festival.location %></h4>
+              <p><%= festival.date %></p>
+            </a>
+            <a href="/festivals/<%= festival.id %>/add" class="btn btn-success"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> I'm going!</a>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
-<% end %>
 </div>
 
 <!-- .strftime('%A, %B %d, %y') -->
