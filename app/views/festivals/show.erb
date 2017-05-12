@@ -1,4 +1,8 @@
-<%= flash[:message] %>
+<% if flash[:message] %>
+  <div class="alert alert-info" role="alert">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 
 <a href="/festivals">Back to Festivals</a>
 

@@ -1,3 +1,9 @@
+/*body {
+  background-image: url('./images/rave-image.jpg');
+  background-position: center;
+  background-size: cover;
+}*/
+
 ul.checkboxes li {
   display:inline-block;
   width:12em;
