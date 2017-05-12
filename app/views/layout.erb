@@ -1,6 +1,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="/master.css">
 </head>
@@ -15,7 +16,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">festiPal</a>
+        <a class="navbar-brand" href="/"><i class="fa fa-tripadvisor" aria-hidden="true"></i> festiPal</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,11 +24,11 @@
         <ul class="nav navbar-nav navbar-right">
           <% if !logged_in? %>
             <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/login" class="btn btn-default">Log In</a></li>
+            <li><a href="/login" class="btn btn-default"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
           <% else %>
             <p class="navbar-text">Hello, <%= current_user.username.capitalize %>!</p>
-            <li><a href="/festivals">Festivals</a></li>
-            <li><a href="/logout" class="btn btn-default">Logout</a></li>
+            <li><a href="/festivals"><i class="fa fa-music" aria-hidden="true"></i> Festivals</a></li>
+            <li><a href="/logout" class="btn btn-default"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
           <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
