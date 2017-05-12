@@ -6,8 +6,6 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secret"
-
-    DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://database.db')
   end
 
   use Rack::Flash
