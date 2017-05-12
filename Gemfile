@@ -16,10 +16,10 @@ gem 'rack-flash3'
 gem "tux"
 
 group :development do
-  gem 'sqlite3', '1.3.13'
+  gem 'pg'
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg'
   gem 'rails_12factor'
 end
