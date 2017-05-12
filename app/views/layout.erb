@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/master.css">
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -24,11 +24,11 @@
         <ul class="nav navbar-nav navbar-right">
           <% if !logged_in? %>
             <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/login" class="btn btn-default"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
+            <li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
           <% else %>
             <li><a href="/users/<%= current_user.id %>"><i class="fa fa-hand-spock-o" aria-hidden="true"></i> Hello, <%= current_user.username.capitalize %>!</a></li>
             <li><a href="/festivals"><i class="fa fa-music" aria-hidden="true"></i> Festivals</a></li>
-            <li><a href="/logout" class="btn btn-default"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+            <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
           <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->

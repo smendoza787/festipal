@@ -11,7 +11,7 @@
   <% @artist.festivals.each do |festival| %>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <div class="festival-section text-center">
+        <div class="festival-section going text-center">
           <a href="/festivals/<%= festival.id %>">
             <h2><%= festival.name %></h2>
             <p><%= festival.location %></p>
