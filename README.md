@@ -21,6 +21,6 @@ or...
 
 5. Start up a local server using `shotgun` or `rackup`
 
-#Contributing
+# Contributing
 
 Feel free to make pull requests and report errors as you see fit.
