@@ -12,13 +12,9 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+gem 'rack'
 gem 'rack-flash3'
 gem "tux"
 
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+gem 'sqlite3', :group => 'development'
+gem 'pg', :group => 'production'
