@@ -1,6 +1,14 @@
 <a href="/festivals"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to Festivals</a>
 
-<h1 class="jumbotron text-center"><%= @user.username.capitalize %>'s Festival Page</h1>
+<div class="text-center" style="
+  background: url('<%= random_bg_image_url %>') no-repeat center center;
+  padding: 100px;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 10px 10px 0 0;">
+    <h1><%= @user.username.capitalize %>'s Festival Page</h1>
+</div>
 
 <div class="well">
   <% if @user.id == current_user.id %>
@@ -10,14 +18,18 @@
   <% end %>
 
   <div class="row clearfix">
-    <% @user.festivals.each do |festival| %>
-      <div class="festival-section text-center going">
-        <a href="/festivals/<%= festival.id %>">
-          <h3><%= festival.name %></h3>
-          <p><%= festival.location %></p>
-          <p><%= festival.date %></p>
-        </a>
-        <a href="/festivals/<%= festival.id %>/remove" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i> I'm not going anymore.</a>
-      </div>
-  <% end %>
+    <% if @user.festivals.size > 0 %>
+      <% @user.festivals.each do |festival| %>
+        <div class="festival-section text-center going">
+          <a href="/festivals/<%= festival.id %>">
+            <h3><%= festival.name %></h3>
+            <p><%= festival.location %></p>
+            <p><%= festival.date %></p>
+          </a>
+          <a href="/festivals/<%= festival.id %>/remove" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i> I'm not going anymore.</a>
+        </div>
+      <% end %>
+    <% else %>
+      <h4 class="text-center"><%= profile_random_string %></h4>
+    <% end %>
 </div>

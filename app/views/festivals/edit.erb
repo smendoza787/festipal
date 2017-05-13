@@ -6,8 +6,15 @@
 
 <a href="/festivals/<%= @festival.id %>"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to Festival</a>
 
-<h1 class="jumbotron text-center">Update Festival</h1>
-
+<div class="text-center" style="
+  background: url('<%= random_bg_image_url %>') no-repeat center center;
+  padding: 100px;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 10px 10px 0 0;">
+  <h1>Update Festival</h1>
+</div>
 
 <div class="well">
   <form action="/festivals" method="post">
