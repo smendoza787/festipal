@@ -27,7 +27,7 @@
             <a href="/festivals/<%= festival.id %>" class="text-center">
               <h2><%= festival.name %></h2>
               <h4><%= festival.location %></h4>
-              <p><%= festival.date %></p>
+              <p><%= festival.date.strftime("%A %B %d, %Y") %></p>
             </a>
 
             <a href="/festivals/<%= festival.id %>/remove" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i> I'm not going anymore.</a>
