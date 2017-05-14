@@ -5,7 +5,6 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 
 require 'sinatra/base'
 require 'rack-flash'
-require 'Date'
 
 configure :development do
   ActiveRecord::Base.establish_connection(
