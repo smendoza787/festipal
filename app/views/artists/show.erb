@@ -18,17 +18,13 @@
   <h2 class="text-center">Performing at...</h2>
   <div class="row">
     <div class="clearfix">
-      <% @artist.festivals.each do |festival| %>
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <div class="festival-section going text-center">
-              <a href="/festivals/<%= festival.id %>">
-                <h2><%= festival.name %></h2>
-                <p><%= festival.location %></p>
-                <p><%= festival.date %></p>
-              </a>
-            </div>
-          </div>
+      <% @artist.festivals.each do |festival| %>        
+        <div class="festival-section going text-center">
+          <a href="/festivals/<%= festival.id %>">
+            <h2><%= festival.name %></h2>
+            <p><%= festival.location %></p>
+            <p><%= festival.date %></p>
+          </a>
         </div>
       <% end %>
     </div>
