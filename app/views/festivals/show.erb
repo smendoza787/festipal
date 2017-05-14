@@ -35,7 +35,7 @@
 <div class="row text-center">
   <div class="col-md-6">
     <div class="well">
-      <h3><%= @festival.date %></h3>
+      <h3><%= @festival.date.strftime("%A %B %d, %Y") %></h3>
       <p><%= @festival.location %></p>
     </div>
   </div>
