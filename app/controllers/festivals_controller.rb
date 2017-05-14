@@ -95,6 +95,7 @@ class FestivalsController < ApplicationController
       @festival = Festival.find_by(id: params[:id])
 
       if @festival
+        @festivals.users << current_user
         current_user.festivals << @festival
 
         flash[:message] = "You're going to #{@festival.name}!"
@@ -118,6 +119,7 @@ class FestivalsController < ApplicationController
       @festival = current_user.festivals.find_by(id: params[:id])
 
       if @festival
+        @festival.users -= [current_user]
         current_user.festivals -= [@festival]
 
         flash[:message] = "You're not going to #{@festival.name} anymore."
