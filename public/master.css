@@ -10,7 +10,12 @@ h1.text-success {
 }
 
 body {
-  background-color: #262d49;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#262d49+0,5f6fb5+50,87bbff+100 */
+  background: #262d49; /* Old browsers */
+  background: -moz-linear-gradient(left, #262d49 0%, #5f6fb5 50%, #87bbff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #262d49 0%,#5f6fb5 50%,#87bbff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #262d49 0%,#5f6fb5 50%,#87bbff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262d49', endColorstr='#87bbff',GradientType=1 ); /* IE6-9 */
   margin-top: 60px;
 }
 
