@@ -90,6 +90,42 @@ class FestivalsController < ApplicationController
     end
   end
 
+  patch '/festivals/:id' do
+    if logged_in?
+      @festival = Festival.find_by(id: params[:id])
+
+      if @festival
+        @festival.update(params[:festival])
+        @festival.save
+
+        params[:new_artist].each do |artist_params|
+          if artist_params[:name] != "" && artist_params[:genre] != ""
+            new_artist = @festival.artists.find_or_create_by(artist_params)
+
+            if !new_artist.save
+              flash[:error] = fest.errors.full_messages
+
+              redirect '/festivals/new'
+            end
+          end
+        end
+
+        flash[:message] = "You have successfully updated #{@festival.name}."
+
+        redirect "/festivals/#{@festival.id}"
+      else
+        flash[:message] = "Festival does not exist."
+
+        redirect '/festivals'
+      end
+
+    else
+      flash[:message] = "You must be logged in to do that."
+
+      redirect '/login'
+    end
+  end
+
   get '/festivals/:id/add' do
     if logged_in?
       @festival = Festival.find_by(id: params[:id])

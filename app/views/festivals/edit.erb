@@ -17,7 +17,8 @@
 </div>
 
 <div class="well">
-  <form action="/festivals" method="post">
+  <form action="/festivals/<%= @festival.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
@@ -35,7 +36,7 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h3>Create Lineup</h3>
+        <h3>Update Lineup</h3>
 
         <p>Choose from existing artists:</p>
       </div>
