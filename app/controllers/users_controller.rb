@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:error] = "Successfully created new account, thanks #{@user.username.capitalize}!"
+      flash[:message] = "Successfully created new account, thanks #{@user.username.capitalize}!"
 
       redirect '/festivals'
     else

@@ -31,7 +31,7 @@ class FestivalsController < ApplicationController
           new_artist = festival.artists.find_or_create_by(artist_params)
 
           if !new_artist.save
-            flash[:error] = festival.errors.full_messages
+            flash[:messages] = festival.errors.full_messages
 
             redirect '/festivals/new'
           end
