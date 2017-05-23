@@ -3,7 +3,6 @@ class FestivalsController < ApplicationController
   get '/festivals' do
     if !logged_in?
       flash[:message] = "You must be logged in to do that."
-
       redirect '/login'
     else
       erb :'/festivals/index'
@@ -23,19 +22,16 @@ class FestivalsController < ApplicationController
   end
 
   post '/festivals' do
-    fest = Festival.new(params[:festival])
-
-    if fest.save
-      fest.created_by_user_id = current_user.id
-      current_user.festivals << fest
-      fest.save
+    festival = current_user.festivals.build(params[:festival])
+    festival.created_by_user_id = current_user.id
+    if festival.save
 
       params[:new_artist].each do |artist_params|
         if artist_params[:name] != "" && artist_params[:genre] != ""
-          new_artist = fest.artists.find_or_create_by(artist_params)
+          new_artist = festival.artists.find_or_create_by(artist_params)
 
           if !new_artist.save
-            flash[:error] = fest.errors.full_messages
+            flash[:error] = festival.errors.full_messages
 
             redirect '/festivals/new'
           end
@@ -44,9 +40,9 @@ class FestivalsController < ApplicationController
 
       flash[:message] = "Successfully created festival."
 
-      redirect "/festivals/#{fest.id}"
+      redirect "/festivals/#{festival.id}"
     else
-      flash[:error] = fest.errors.full_messages
+      flash[:error] = festival.errors.full_messages
 
       redirect '/festivals/new'
     end
@@ -75,7 +71,7 @@ class FestivalsController < ApplicationController
     if logged_in?
       @festival = Festival.find_by(id: params[:id])
 
-      if @festival
+      if @festival && @festival.created_by_user_id == current_user.id
         erb :'/festivals/edit'
       else
         flash[:message] = "Festival does not exist."
@@ -94,7 +90,7 @@ class FestivalsController < ApplicationController
     if logged_in?
       @festival = Festival.find_by(id: params[:id])
 
-      if @festival
+      if @festival && @festival.created_by_user_id == current_user.id
         @festival.update(params[:festival])
         @festival.save
 
@@ -129,22 +125,16 @@ class FestivalsController < ApplicationController
   get '/festivals/:id/add' do
     if logged_in?
       @festival = Festival.find_by(id: params[:id])
-
       if @festival
         current_user.festivals << @festival
-
         flash[:message] = "You're going to #{@festival.name}!"
-
         redirect "/festivals/#{@festival.id}"
       else
         flash[:message] = "Festival does not exist."
-
         redirect '/festivals'
       end
-
     else
       flash[:message] = "You must be logged in to do that."
-
       redirect '/login'
     end
   end

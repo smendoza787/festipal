@@ -15,12 +15,12 @@ class UsersController < ApplicationController
     @user = User.new(params)
 
     if @user.save
-      session[:id] = @user.id
-      session[:message] = "Successfully created new account, thanks #{@user.username.capitalize}!"
+      session[:user_id] = @user.id
+      flash[:error] = "Successfully created new account, thanks #{@user.username.capitalize}!"
 
       redirect '/festivals'
     else
-      flash[:error] = @user.errors.full_messages
+      flash[:error] = @user.errors.full_messages.join(', ')
 
       erb :'/users/new'
     end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
 
     if @user && @user.authenticate(params[:password])
-      session[:id] = @user.id
+      session[:user_id] = @user.id
 
       session[:message] = "Successfully logged in as #{current_user.username.capitalize}."
 

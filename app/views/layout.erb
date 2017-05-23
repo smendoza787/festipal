@@ -37,6 +37,12 @@
     </div><!-- /.container-fluid -->
   </nav>
   <div class="container">
+    <% if flash[:error] %>
+      <div class="alert alert-info" role="alert">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </div>
 
